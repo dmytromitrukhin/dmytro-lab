@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Dmytro Lab — Web Tools</title>
+
+  <meta
+          name="description"
+          content="Персональна веб-лабораторія інструментів для друку, PDF, кольору, розрахунків і символічних систем."
+  />
+</head>
+
+<body>
+<canvas id="hex-bg" aria-hidden="true"></canvas>
+
+<div class="site-shell">
+  <header class="site-header">
+    <a class="logo" href="#">
+  <span class="logo-mark logo-photo">
+    <img src="/images/photo_2026-05-24_10-59-45.jpg" alt="Dmytro Mitrukhin" />
+  </span>
+      <span class="logo-text">Dmytro Mitrukhin</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Personal Web Tools</p>
+
+      <h1>
+        Web laboratory
+      </h1>
+
+      <p class="hero-text">
+        Web application development.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#tools">Відкрити інструменти</a>
+        <a class="button button-secondary" href="#about">Про лабораторію</a>
+      </div>
+
+      <div class="system-card">
+        <div class="system-card-header">
+          <span class="status-dot"></span>
+          <span>Lab system online</span>
+        </div>
+
+        <div class="system-lines">
+          <p><span>&gt;</span> kompas: protected core</p>
+          <p><span>&gt;</span> PaperCalc and Cutting Visualizer: protected core</p>
+          <p><span>&gt;</span> pdf tools: public + private</p>
+          <!--<p><span>&gt;</span> cutting visualizer: planned</p>-->
+          <p><span>&gt;</span> eliza: experimental</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Tool Modules</p>
+        <h2>Інструменти</h2>
+        <p>
+          Публічні програми будуть відкритими, а приватні частини —
+          тільки через захищену адмінку.
+        </p>
+      </div>
+
+      <div class="tools-grid">
+        <article class="tool-card tool-card-primary">
+          <div class="tool-card-top">
+            <span class="tool-icon">◇</span>
+            <span class="tool-status active">Active</span>
+          </div>
+
+          <h3>Kompas</h3>
+
+          <p>
+            Символічний інструмент з окремим захищеним ядром, яке не буде
+            потрапляти у браузер.
+          </p>
+
+          <div class="tag-list">
+            <span>symbolic</span>
+            <span>private core</span>
+            <span>web app</span>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-card-top">
+            <span class="tool-icon">▤</span>
+            <span class="tool-status planned">Rewrite</span>
+          </div>
+
+          <h3>PaperCalc and Cutting Visualizer</h3>
+
+          <p>
+            Калькулятор паперу. Візуалізатор порізки та розкладки аркуша для поліграфічного
+            виробництва.
+          </p>
+          </p>
+
+          <div class="tag-list">
+            <span>print</span>
+            <span>paper</span>
+            <span>web app</span>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-card-top">
+            <span class="tool-icon">◫</span>
+            <span class="tool-status planned">Planned</span>
+          </div>
+
+          <h3>PDF Tools Public</h3>
+
+          <p>
+            Публічна перевірка PDF: RGB, CMYK, Gray, Spot. Для конвертації
+            користувач встановлює Ghostscript локально.
+          </p>
+
+          <div class="tag-list">
+            <span>PDF</span>
+            <span>prepress</span>
+            <span>web app</span>
+          </div>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-card-top">
+            <span class="tool-icon">▣</span>
+            <span class="tool-status private">Private</span>
+          </div>
+
+          <h3>PDF Tools Admin</h3>
+
+          <p>
+            Особиста закрита версія для перевірки й конвертації PDF на
+            сервері через Ghostscript.
+          </p>
+
+          <div class="tag-list">
+            <span>admin</span>
+            <span>server</span>
+            <span>Ghostscript</span>
+          </div>
+        </article>
+
+       <!-- <article class="tool-card">
+          <div class="tool-card-top">
+            <span class="tool-icon">⌗</span>
+            <span class="tool-status planned">Planned</span>
+          </div>
+
+          <h3>Cutting Visualizer</h3>
+
+          <p>
+            Візуалізатор порізки та розкладки аркуша для поліграфічного
+            виробництва.
+          </p>
+
+          <div class="tag-list">
+            <span>cutting</span>
+            <span>layout</span>
+            <span>print</span>
+          </div>
+        </article>-->
+
+        <article class="tool-card">
+          <div class="tool-card-top">
+            <span class="tool-icon">∴</span>
+            <span class="tool-status experimental">Experimental</span>
+          </div>
+
+          <h3>Eliza</h3>
+
+          <p>
+            Експериментальний діалоговий модуль, який може бути пов’язаний
+            з Kompas або існувати окремо.
+          </p>
+
+          <div class="tag-list">
+            <span>dialog</span>
+            <span>experiment</span>
+            <span>web app</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <p class="eyebrow">About</p>
+
+      <h2>Живий портал без фанатизму</h2>
+
+      <p>
+        Dmytro Lab — це не просто сайт, а персональна майстерня веб-програм.
+        Публічні інструменти будуть відкритими, практичними й легкими, а
+        приватні серверні частини залишаться доступними тільки через адмінку.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Dmytro Lab</p>
+    <p>Personal web tools portal</p>
+  </footer>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
