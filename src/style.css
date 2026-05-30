@@ -415,6 +415,31 @@ h3 {
   font-weight: 700;
 }
 
+/*.tool-link {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 0 16px;
+  color: #03131d;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  font-size: 0.88rem;
+  font-weight: 900;
+  transition:
+          transform 160ms ease,
+          box-shadow 160ms ease;
+}
+
+.tool-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 42px rgba(56, 189, 248, 0.18);
+}*/
+
+
+
+
 .about-section {
   max-width: 900px;
   margin-bottom: 44px;
@@ -495,4 +520,22 @@ h3 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+.tool-card-link {
+  color: inherit;
+  cursor: pointer;
+}
+
+.tool-card-link:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  background:
+          linear-gradient(180deg, rgba(125, 211, 252, 0.08), transparent),
+          var(--panel-strong);
+}
+
+.tool-card-link:focus-visible {
+  outline: 3px solid rgba(125, 211, 252, 0.35);
+  outline-offset: 4px;
 }
