@@ -40,7 +40,7 @@ body {
   margin: 0;
   color: var(--text);
   background:
-          radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 32rem),
+          radial-gradient(circle at 50% 0%, rgb(0 27 41 / 0.78), transparent 32rem),
           radial-gradient(circle at 100% 15%, rgba(168, 85, 247, 0.1), transparent 28rem),
           var(--bg);
   font-family:
