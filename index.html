@@ -26,7 +26,10 @@
 
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#tools">Tools</a>
-      <a href="#about">About</a>
+      <!--<a href="#about">About</a>-->
+      <button class="nav-button" type="button" data-modal-open="about-modal">
+        About
+      </button>
     </nav>
   </header>
 <!--
@@ -47,10 +50,6 @@
         Web application development.
       </p>
 
-      <div class="hero-actions">
-        <a class="button button-primary" href="#tools">Відкрити інструменти</a>
-        <a class="button button-secondary" href="#about">Про лабораторію</a>
-      </div>
 
       <div class="system-card">
         <div class="system-card-header">
@@ -69,12 +68,8 @@
 
     <section id="tools" class="section">
       <div class="section-heading">
-        <p class="eyebrow">Tool Modules</p>
-        <h2>Інструменти</h2>
-        <!--<p>
-          Публічні програми будуть відкритими, а приватні частини —
-          тільки через захищену адмінку.
-        </p>-->
+        <!--<p class="eyebrow">Tool Modules</p>-->
+        <h2>Tool Modules</h2>
       </div>
 
       <div class="tools-grid">
@@ -88,8 +83,8 @@
           <h3>Kompas</h3>
 
           <p>
-            Символічний інструмент з окремим захищеним ядром, яке не буде
-            потрапляти у браузер.
+            A program that uses mathematical calculations to analyze the energetic potential of words,
+            suggest suitable professions based on a name, and calculate favorable days.
           </p>
 
           <div class="tag-list">
@@ -112,8 +107,9 @@
           <h3>PaperCalc and Cutting Visualizer</h3>
 
           <p>
-            Калькулятор паперу. Візуалізатор порізки та розкладки аркуша для поліграфічного
-            виробництва.
+            This program is a paper calculator that calculates the required number of sheets,
+            shows the height of the paper stack needed to get that quantity,
+            and includes a cutting visualizer.
           </p>
           </p>
 
@@ -133,8 +129,8 @@
           <h3>Raster Image Processor</h3>
 
           <p>
-            Перевірка PDF: RGB, CMYK, Gray, Spot. Для конвертації
-            користувач встановлює Ghostscript локально.
+            PDF color check: RGB, CMYK, Gray, and Spot colors.
+            Local Ghostscript installation is required for conversion.
           </p>
 
           <div class="tag-list">
@@ -146,44 +142,21 @@
 
         <article class="tool-card">
           <div class="tool-card-top">
-            <span class="tool-icon">▣</span>
-            <!--<span class="tool-status private">Private</span>-->
+            <span class="tool-icon">🎮</span>
             <span class="tool-status planned">Planned</span>
           </div>
 
-          <h3>Raster Image Processor Admin</h3>
+          <h3>Game</h3>
 
           <p>
-            Особиста закрита версія для перевірки й конвертації PDF на
-            сервері через Ghostscript.
+            A turn-based role-playing game
           </p>
 
           <div class="tag-list">
-            <span>admin</span>
-            <span>server</span>
-            <span>Ghostscript</span>
+            <span>Game</span>
           </div>
         </article>
 
-       <!-- <article class="tool-card">
-          <div class="tool-card-top">
-            <span class="tool-icon">⌗</span>
-            <span class="tool-status planned">Planned</span>
-          </div>
-
-          <h3>Cutting Visualizer</h3>
-
-          <p>
-            Візуалізатор порізки та розкладки аркуша для поліграфічного
-            виробництва.
-          </p>
-
-          <div class="tag-list">
-            <span>cutting</span>
-            <span>layout</span>
-            <span>print</span>
-          </div>
-        </article>-->
 
         <article class="tool-card">
           <div class="tool-card-top">
@@ -195,7 +168,7 @@
           <h3>Eliza</h3>
 
           <p>
-            Експериментальний діалоговий модуль.
+            A dialogue-based program, not an AI system.
           </p>
 
           <div class="tag-list">
@@ -207,16 +180,50 @@
       </div>
     </section>
 
-    <section id="about" class="section about-section">
+
+  </main>
+
+  <div class="modal" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title" hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+
+    <div class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Close about window" data-modal-close>
+        ×
+      </button>
+
       <p class="eyebrow">About</p>
 
-      <!--<h2>Живий портал без фанатизму</h2>-->
+      <h2 id="about-modal-title">Web laboratory</h2>
 
-      <p>
-        Tools Lab
-      </p>
-    </section>
-  </main>
+      <div class="modal-content">
+        <p>
+          This website is being developed to bring together projects that help
+          people solve non-standard tasks using only a smartphone. A desktop
+          version of the website is also available and fully functional.
+        </p>
+
+        <p>
+          I have been working in the printing industry since 2006. My educational
+          background includes graphic design and aircraft engineering. My experience
+          combines print production, small-scale production automation, web
+          applications, software tools, computer repair, hardware upgrades,
+          operating systems, photography, and printing.
+        </p>
+
+        <p>
+          I create practical programs and web-based tools designed to simplify
+          real-world workflows, improve efficiency, and make technical solutions
+          accessible from everyday devices.
+        </p>
+
+        <p>
+          I am also interested in understanding how nature, the environment, and
+          the human mind work — including consciousness, subconscious processes,
+          and the connection between people and the world around them.
+        </p>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Dmytro Lab</p>

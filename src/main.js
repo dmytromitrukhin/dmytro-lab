@@ -6,6 +6,57 @@ if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
 
+const modalOpenButtons = document.querySelectorAll('[data-modal-open]');
+const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+
+function openModal(modalId) {
+    const modal = document.querySelector(`#${modalId}`);
+
+    if (!modal) {
+        return;
+    }
+
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+
+    const closeButton = modal.querySelector('[data-modal-close]');
+
+    if (closeButton) {
+        closeButton.focus();
+    }
+}
+
+function closeModal(modal) {
+    if (!modal) {
+        return;
+    }
+
+    modal.hidden = true;
+    document.body.classList.remove('modal-open');
+}
+
+for (const button of modalOpenButtons) {
+    button.addEventListener('click', () => {
+        openModal(button.dataset.modalOpen);
+    });
+}
+
+for (const button of modalCloseButtons) {
+    button.addEventListener('click', () => {
+        closeModal(button.closest('.modal'));
+    });
+}
+
+window.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') {
+        return;
+    }
+
+    const openedModal = document.querySelector('.modal:not([hidden])');
+
+    closeModal(openedModal);
+});
+
 const canvas = document.querySelector('#hex-bg');
 const context = canvas?.getContext('2d');
 

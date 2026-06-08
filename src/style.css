@@ -547,3 +547,124 @@ h3 {
   outline: 3px solid rgba(125, 211, 252, 0.35);
   outline-offset: 4px;
 }
+
+.nav-button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  transition:
+          color 160ms ease,
+          border-color 160ms ease,
+          background 160ms ease;
+}
+
+.nav-button:hover {
+  color: var(--text);
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.about-preview {
+  display: grid;
+  gap: 12px;
+}
+
+.about-preview .button {
+  width: fit-content;
+  margin-top: 8px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.68);
+  backdrop-filter: blur(16px);
+}
+
+.modal-panel {
+  position: relative;
+  width: min(780px, 100%);
+  max-height: min(82vh, 760px);
+  overflow: auto;
+  padding: clamp(22px, 5vw, 36px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent),
+          var(--panel-strong);
+  box-shadow: 0 30px 120px rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(22px);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  border-color: var(--border-strong);
+  background: rgba(125, 211, 252, 0.1);
+}
+
+.modal-content {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+.modal-content p {
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .modal {
+    padding: 14px;
+  }
+
+  .modal-panel {
+    max-height: 86vh;
+    padding: 22px;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+  }
+}
