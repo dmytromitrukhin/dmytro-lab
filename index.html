@@ -1,83 +1,125 @@
 <!doctype html>
-<html lang="uk">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Dmytro Mitrukhin — Web Tools</title>
+  <title>Dmytro Lab — Web Laboratory by Dmytro Mitrukhin</title>
 
   <meta
           name="description"
-          content="Персональна веб-лабораторія інструментів для друку, PDF, кольору, розрахунків і символічних систем."
+          content="Dmytro Lab by Dmytro Mitrukhin brings together software development and professional print production: web applications, engineering tools, and print and prepress services."
   />
 </head>
 
 <body>
+<a class="skip-link" href="#main-content" data-modal-background>Skip to content</a>
 <canvas id="hex-bg" aria-hidden="true"></canvas>
 
 <div class="site-shell">
-  <header class="site-header">
+  <header class="site-header" data-modal-background>
     <a class="logo" href="#">
-  <span class="logo-mark logo-photo">
-    
-  </span>
-      <span class="logo-text">Dmytro Mitrukhin</span>
+      <span class="logo-mark" aria-hidden="true">DL</span>
+      <span class="logo-text">
+        Dmytro Lab
+        <span class="logo-author">by Dmytro Mitrukhin</span>
+      </span>
     </a>
 
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#tools">Tools</a>
-      <!--<a href="#about">About</a>-->
-      <button class="nav-button" type="button" data-modal-open="about-modal">
+      <button class="nav-button" type="button" data-modal-open="about-modal" aria-haspopup="dialog" aria-controls="about-modal">
         About
       </button>
     </nav>
   </header>
-<!--
-  git status
-  git add .
-  git commit -m "Опис зміни"
-  git push-->
 
-  <main>
-    <section class="hero">
-      <p class="eyebrow">Personal Web Tools</p>
+  <main id="main-content" tabindex="-1" data-modal-background>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Software &amp; print production</p>
 
-      <h1>
-        Web laboratory
-      </h1>
+        <h1 id="hero-title">Web laboratory</h1>
 
-      <p class="hero-text">
-        Web application development.
-      </p>
+        <p class="hero-text">
+          Software development and professional print production.
+          Web applications, engineering tools, and a practical approach to print and prepress.
+        </p>
 
-
-      <div class="system-card">
-        <div class="system-card-header">
-          <span class="status-dot"></span>
-          <span>Lab system online</span>
-        </div>
-
-        <div class="system-lines">
-          <p><span>&gt;</span> kompas: planned</p>
-          <p><span>&gt;</span> papercalc: ready</p>
-          <p><span>&gt;</span> Raster Image Processor: planned</p>
-          <p><span>&gt;</span> eliza: ready</p>
-          <p><span>&gt;</span> Game: planned</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#tools">Explore Tools <span aria-hidden="true">&darr;</span></a>
+          <a class="button button-secondary" href="#print-prepress">Print &amp; Prepress <span aria-hidden="true">&darr;</span></a>
         </div>
       </div>
     </section>
 
-    <section id="tools" class="section">
+    <section id="tools" class="section" tabindex="-1" aria-labelledby="tools-title">
       <div class="section-heading">
-        <!--<p class="eyebrow">Tool Modules</p>-->
-        <h2>Tool Modules</h2>
+        <h2 id="tools-title">Tool Modules</h2>
+        <p>Open a ready tool or explore what is planned for the lab.</p>
       </div>
 
       <div class="tools-grid">
-        <article class="tool-card tool-card-primary">
+        <a
+                class="tool-card tool-card-link"
+                href="https://dmytromitrukhin.github.io/papercalc/"
+                aria-labelledby="papercalc-title papercalc-action"
+                aria-describedby="papercalc-status"
+        >
           <div class="tool-card-top">
-            <span class="tool-icon">◇</span>
-            <!--<span class="tool-status active">Active</span>-->
+            <span class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M6 3h12v18H6zM9 8h6M9 12h6M9 16h4" /></svg>
+            </span>
+            <span class="tool-status active" id="papercalc-status">Ready</span>
+          </div>
+
+          <h3 id="papercalc-title">PaperCalc and Cutting Visualizer</h3>
+
+          <p>
+            This program is a paper calculator that calculates the required number of sheets,
+            shows the height of the paper stack needed to get that quantity,
+            and includes a cutting visualizer.
+          </p>
+
+          <div class="tag-list">
+            <span>print</span>
+            <span>paper</span>
+            <span>web app</span>
+          </div>
+          <span class="tool-card-action" id="papercalc-action">Open tool <span aria-hidden="true">&rarr;</span></span>
+        </a>
+
+        <a
+                class="tool-card tool-card-link"
+                href="https://dmytromitrukhin.github.io/eliza/"
+                aria-labelledby="eliza-title eliza-action"
+                aria-describedby="eliza-status"
+        >
+          <div class="tool-card-top">
+            <span class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 4h16v12H9l-5 4zM8 10h.01M12 10h.01M16 10h.01" /></svg>
+            </span>
+            <span class="tool-status active" id="eliza-status">Ready</span>
+          </div>
+
+          <h3 id="eliza-title">Eliza</h3>
+
+          <p>
+            A dialogue-based program, not an AI system.
+          </p>
+
+          <div class="tag-list">
+            <span>dialog</span>
+            <span>web app</span>
+          </div>
+          <span class="tool-card-action" id="eliza-action">Open tool <span aria-hidden="true">&rarr;</span></span>
+        </a>
+
+        <article class="tool-card">
+          <div class="tool-card-top">
+            <span class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="m12 3 9 9-9 9-9-9zM15 9l-2 4-4 2 2-4z" /></svg>
+            </span>
             <span class="tool-status planned">Planned</span>
           </div>
 
@@ -95,35 +137,11 @@
           </div>
         </article>
 
-        <a
-                class="tool-card tool-card-link"
-                href="https://dmytromitrukhin.github.io/papercalc/"
-                aria-label="Open PaperCalc"
-        >
-          <div class="tool-card-top">
-            <span class="tool-icon">▤</span>
-            <span class="tool-status active">Ready</span>
-          </div>
-
-          <h3>PaperCalc and Cutting Visualizer</h3>
-
-          <p>
-            This program is a paper calculator that calculates the required number of sheets,
-            shows the height of the paper stack needed to get that quantity,
-            and includes a cutting visualizer.
-          </p>
-          </p>
-
-          <div class="tag-list">
-            <span>print</span>
-            <span>paper</span>
-            <span>web app</span>
-          </div>
-        </a>
-
         <article class="tool-card">
           <div class="tool-card-top">
-            <span class="tool-icon">◫</span>
+            <span class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 4h16v16H4zM4 12h16M12 4v16" /></svg>
+            </span>
             <span class="tool-status planned">Planned</span>
           </div>
 
@@ -143,7 +161,9 @@
 
         <article class="tool-card">
           <div class="tool-card-top">
-            <span class="tool-icon">🎮</span>
+            <span class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M7 7h10c2 0 3 2 3.5 4l1 6c.3 2-1.5 3-3 1l-2-2h-9l-2 2c-1.5 2-3.3 1-3-1l1-6C4 9 5 7 7 7zM6 11h4M8 9v4M15 11h.01M18 13h.01" /></svg>
+            </span>
             <span class="tool-status planned">Planned</span>
           </div>
 
@@ -157,37 +177,33 @@
             <span>Game</span>
           </div>
         </article>
-
-
-        <a
-                class="tool-card tool-card-link"
-                href="https://dmytromitrukhin.github.io/eliza/"
-                aria-label="Open Eliza"
-        >
-          <div class="tool-card-top">
-            <span class="tool-icon">∴</span>
-            <span class="tool-status active">Ready</span>
-          </div>
-
-          <h3>Eliza</h3>
-
-          <p>
-            A dialogue-based program, not an AI system.
-          </p>
-
-          <div class="tag-list">
-            <span>dialog</span>
-            <span>web app</span>
-          </div>
-        </a>
       </div>
     </section>
 
+    <section id="print-prepress" class="section print-section" tabindex="-1" aria-labelledby="print-title">
+      <div class="print-panel">
+        <div class="print-heading">
+          <p class="eyebrow">Professional services</p>
+          <h2 id="print-title">Print &amp; Prepress</h2>
+        </div>
 
+        <div class="print-copy">
+          <p>
+            Professional print production and prepress services,
+            with a practical focus on preparing work for print and production workflows.
+          </p>
+          <p class="print-note">
+            Print production experience since 2006,
+            with a background in graphic design and aircraft engineering.
+          </p>
+          <a class="button button-secondary section-link" href="./print-prepress.html">Explore Print &amp; Prepress <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <div class="modal" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title" hidden>
-    <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title" tabindex="-1" hidden>
+    <div class="modal-backdrop" data-modal-close aria-hidden="true"></div>
 
     <div class="modal-panel" role="document">
       <button class="modal-close" type="button" aria-label="Close about window" data-modal-close>
@@ -198,7 +214,7 @@
 
       <h2 id="about-modal-title">Web laboratory</h2>
 
-      <div class="modal-content">
+      <div class="modal-content" role="region" aria-labelledby="about-modal-title" tabindex="0">
         <p>
           This website is being developed to bring together projects that help
           people solve non-standard tasks using only a smartphone. A desktop
@@ -228,9 +244,9 @@
     </div>
   </div>
 
-  <footer class="site-footer">
+  <footer class="site-footer" data-modal-background>
     <p>© <span id="year"></span> Dmytro Mitrukhin</p>
-    <p>Personal web tools portal</p>
+    <p>Dmytro Lab · Independent web laboratory</p>
   </footer>
 </div>
 

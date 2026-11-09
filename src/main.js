@@ -8,36 +8,57 @@ if (yearElement) {
 
 const modalOpenButtons = document.querySelectorAll('[data-modal-open]');
 const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+const modalBackgroundElements = document.querySelectorAll('[data-modal-background]');
+let activeModal = null;
+let modalOpener = null;
 
-function openModal(modalId) {
-    const modal = document.querySelector(`#${modalId}`);
+function openModal(modalId, opener) {
+    const modal = document.getElementById(modalId);
 
-    if (!modal) {
+    if (!modal || modal === activeModal) {
         return;
     }
 
+    if (activeModal) {
+        closeModal(activeModal);
+    }
+
+    modalOpener = opener || document.activeElement;
+    activeModal = modal;
     modal.hidden = false;
     document.body.classList.add('modal-open');
 
-    const closeButton = modal.querySelector('[data-modal-close]');
+    const closeButton = modal.querySelector('button[data-modal-close]');
+    (closeButton || modal).focus({ preventScroll: true });
 
-    if (closeButton) {
-        closeButton.focus();
+    for (const element of modalBackgroundElements) {
+        element.inert = true;
     }
 }
 
 function closeModal(modal) {
-    if (!modal) {
+    if (!modal || modal !== activeModal) {
         return;
     }
 
+    activeModal = null;
     modal.hidden = true;
     document.body.classList.remove('modal-open');
+
+    for (const element of modalBackgroundElements) {
+        element.inert = false;
+    }
+
+    if (modalOpener?.isConnected) {
+        modalOpener.focus({ preventScroll: true });
+    }
+
+    modalOpener = null;
 }
 
 for (const button of modalOpenButtons) {
     button.addEventListener('click', () => {
-        openModal(button.dataset.modalOpen);
+        openModal(button.dataset.modalOpen, button);
     });
 }
 
@@ -48,13 +69,46 @@ for (const button of modalCloseButtons) {
 }
 
 window.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape') {
+    if (!activeModal) {
         return;
     }
 
-    const openedModal = document.querySelector('.modal:not([hidden])');
+    if (event.key === 'Escape') {
+        event.preventDefault();
+        closeModal(activeModal);
+        return;
+    }
 
-    closeModal(openedModal);
+    if (event.key !== 'Tab') {
+        return;
+    }
+
+    const focusableElements = Array.from(activeModal.querySelectorAll(
+        'a[href], button, input, select, textarea, [tabindex]',
+    )).filter((element) =>
+        element.tabIndex >= 0 &&
+        !element.matches(':disabled') &&
+        !element.closest('[inert]') &&
+        element.getClientRects().length > 0,
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (!firstElement) {
+        event.preventDefault();
+        activeModal.focus({ preventScroll: true });
+        return;
+    }
+
+    const focusOutside = !focusableElements.includes(document.activeElement);
+
+    if (event.shiftKey && (document.activeElement === firstElement || focusOutside)) {
+        event.preventDefault();
+        lastElement.focus({ preventScroll: true });
+    } else if (!event.shiftKey && (document.activeElement === lastElement || focusOutside)) {
+        event.preventDefault();
+        firstElement.focus({ preventScroll: true });
+    }
 });
 
 const canvas = document.querySelector('#hex-bg');
@@ -146,6 +200,8 @@ function resizeCanvas() {
 
     context.setTransform(deviceRatio, 0, 0, deviceRatio, 0, 0);
 
+    cancelAnimationFrame(animationFrameId);
+    animationFrameId = 0;
     generateHexagons();
     drawFrame();
 }
