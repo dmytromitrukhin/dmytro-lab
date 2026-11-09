@@ -2,7 +2,7 @@
   color-scheme: dark;
   --bg: rgb(7 10 15);
   --bg-soft: #0d121b;
-  --panel: rgba(15, 23, 35, 0.94);
+  --panel: rgba(15, 23, 35, 0.65);
   --panel-strong: #141e2b;
 
   --text: #f8fafc;
@@ -604,7 +604,7 @@ h3 {
 .tool-card-link:hover,
 .tool-card-link:focus-visible {
   border-color: var(--accent);
-  background: var(--panel-strong);
+  background: rgba(20, 30, 43, 0.78);
 }
 
 .nav-button {
